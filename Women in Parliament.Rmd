@@ -1,0 +1,28 @@
+---
+title: "Women In Malaysian Parliament"
+author: "Fadlan Arif"
+date: "21/12/2020"
+bibliography: "references.bib"
+abstract:
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
