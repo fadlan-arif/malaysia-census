@@ -1,0 +1,44 @@
+---
+title: "Preditcting Where a Teacher is Likely to Teach by Sex and State"
+author: "Fadlan Arif"
+date: "21/12/2020"r
+bibliography: "references.bib"
+abstract: 'In Malaysia, there is a split in the public school education. There is a the standard academic school and then there is the vocational school. Each schools have their own audience and people in Malaysia have a certain perspective about whose who go to a vocational school. In this paper we investigate this perception affects the likelihood of teachers joining these schools. This information could be vital in assessing how we incentivize people to work for different schools.'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+government_school_teachers <- read_excel("data/Number_of_government_school_teachers_by_District_Education_Office_and_by_State_2017-2018 (2).xlsx")
+```
+
+# Introduction
+
+# Data
+
+# Model
+
+# Results
+
+# Discussion
+
+# Weaknesses
+
+# Note
+# Note
+```{r}
+# Code and data supporting this analysis is available at: https://github.com/fadlan-arif/malaysia-census
+```
+
+# References
+
+```{r setup2}
+
+
+```
+
+
+
+
