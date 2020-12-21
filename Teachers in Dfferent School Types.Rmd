@@ -1,7 +1,7 @@
 ---
 title: "Preditcting Where a Teacher is Likely to Teach by Sex and State"
 author: "Fadlan Arif"
-date: "21/12/2020"r
+date: "21/12/2020"
 bibliography: "references.bib"
 abstract: 'In Malaysia, there is a split in the public school education. There is a the standard academic school and then there is the vocational school. Each schools have their own audience and people in Malaysia have a certain perspective about whose who go to a vocational school. In this paper we investigate this perception affects the likelihood of teachers joining these schools. This information could be vital in assessing how we incentivize people to work for different schools.'
 output: pdf_document
@@ -15,8 +15,18 @@ government_school_teachers <- read_excel("data/Number_of_government_school_teach
 ```
 
 # Introduction
+We should first define what is a Vocational School compared to and Academic School before we are able to better examine the reason for our investigation. An Academic School follows the same structure of primary school in which students have to learn a wide variety of subjects that are more theoretical. This form of teaching is more geared towards preparing the students for jobs in the tertiary sector. According to Wikipedia: 'A vocational school is a type of educational institution, which, depending on the country, may refer to either secondary or post-secondary education designed to provide vocational education, or technical skills required to complete the tasks of a particular and specific job'. For Malaysia, it offered as a secondary school option and those who chose this route have to defer from their academic school. This type of schooling is prepares students for work in the primary or Secondary sector. We have chosen to look into the distribution of teachers within Malaysia, as the country itself has an interesting economic status. Malaysia is considered a Developing to Developed Nation. So unlike first world countries such as the United States (@referenceusarticle) or Canada, the composition of its sectors differ. This is because the more developed a nation is, the less focus is put into its primary and secodary sector and more of the population seek for jobs in the tertiary sector (@referencemsiaarticle). On the other hand Malaysia; while still having a tertiary sector; relies much more on its primary and secondary sector for income. Due to this the focus on vocational learning is much more encouraged than it would be in a first world country. Because of this the rate at which teachers look at their school options may differ.
+
+We were able to use the data from Department of Statistics Malaysia (DOSM) and parse through the different categories to find the dataset needed. This data is collected via the Malaysian census. It was done through face to face interviews, self enumeration and e-census. Self-enumeration would be when the government would drop off the census at homes and collect the completed ones, while the e-census is just a census done online. After obtaining the data, we proceeded to clean it by only aqcuiring the data needed. We focused on number of males and females and deleted rows with no information from these schools as they would not add to the statistic. Afterwards the type of school was chosen as our variable of interest and we proceeded to perform logistic regression. The reasoning and process is explained within the Data and Model section.
+
+After using logistic regression and creating our model, we have found that overall teachers are more likely to choose teaching at an academic school over a vocational school. There are most definitely many external factors that effect this outcome such as income and frequency of schools. As teachers in Malaysia, there aren't many benefits, thus for many of these teachers the deciding facor is their salary and the income for those teaching in an academic school is in fact higher than those in vocational school (@findsome article). 
 
 # Data
+
+
+The data we downloaded from the DOSM website was an excel file. Looking at this data, the 'School type' column stood out as it was either 'Academic' or 'Vocational College'. This could easily be a binary variable that could be turned into a logictic regession model with sex and state being the independent variables. The data was shown by school and the frequency of male and female teachers at each school. The first step we took was to handle the non-responses. Some of the schools provided no number for male and female teachers, thus we eliminated those rows from the table. 
+
+Since we had decided that the school type would be our variable of interest we would need to create a binary variable for that data.
 
 # Model
 
