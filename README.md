@@ -1,2 +1,2 @@
 # malaysia-census
-This file explains the different files and what each thing does.
+The input folder contains all data that was created/obtained and used within the paper.
