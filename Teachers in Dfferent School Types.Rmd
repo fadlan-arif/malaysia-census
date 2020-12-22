@@ -8,6 +8,7 @@ output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
+#opening necessary libraries
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(readxl)
@@ -18,11 +19,11 @@ government_school_teachers <- read_excel("input/data/Number_of_government_school
 Within this paper we use @r, @rmarkdown, @rstudio, @tidyverse, @readxl, @knitr
 
 # Introduction
-We should first define what is a vocational school compared to and academic school before we are able to better examine the reason for our investigation. An academic school follows the same structure of primary school in which students must learn a wide variety of subjects that are more theoretical. This form of teaching is geared towards preparing the students for jobs in the tertiary sector. According to Wikipedia: 'A vocational school is a type of educational institution, which, depending on the country, may refer to either secondary or post-secondary education designed to provide vocational education, or technical skills required to complete the tasks of a particular and specific job' (@vocschool). For Malaysia, it is offered as a secondary school option and those who chose this route have to defer from their academic school. This type of schooling prepares students for work in the primary or secondary sector. We have chosen to look into the distribution of teachers within Malaysia, as the country itself has an interesting economic status (@msiasector). Malaysia is considered a Developing to Developed Nation. So, unlike first world countries such as the United States (@useconomy) or Canada, the composition of its sectors differ. This is because the more developed a nation is, the less focus is put into its primary and secondary sector and more of the population seek for jobs in the tertiary sector. On the other hand Malaysia; while still having a tertiary sector; relies much more on its primary and secondary sector for income. Due to this, the focus on vocational learning is much more encouraged than it would be in a first world country and the rate at which teachers look at their school options may differ.
+We should first define what is a vocational school compared to and academic school before we are able to better examine the reason for our investigation. An academic school follows the same structure of primary school in which students must learn a wide variety of subjects that are more theoretical. This form of teaching is geared towards preparing the students for jobs in the tertiary sector. According to Wikipedia: 'A vocational school is a type of educational institution, which, depending on the country, may refer to either secondary or post-secondary education designed to provide vocational education, or technical skills required to complete the tasks of a particular and specific job' @vocschool. For Malaysia, it is offered as a secondary school option and those who chose this route have to defer from their academic school. This type of schooling prepares students for work in the primary or secondary sector. We have chosen to look into the distribution of teachers within Malaysia, as the country itself has an interesting economic status @msiasector. Malaysia is considered a Developing to Developed Nation. So, unlike first world countries such as the United States @useconomy or Canada, the composition of its sectors differ. This is because the more developed a nation is, the less focus is put into its primary and secondary sector and more of the population seek for jobs in the tertiary sector. On the other hand Malaysia; while still having a tertiary sector; relies much more on its primary and secondary sector for income. Due to this, the focus on vocational learning is much more encouraged than it would be in a first world country and the rate at which teachers look at their school options may differ.
 
 We chose the approach of logistic regression as it fit our line of questioning the most. The choice was between two schools, so it was either they teach at an academic school or teach at a vocational one. We were able to use the data from Department of Statistics Malaysia (DOSM, @dosm) and parse through the different categories to find the dataset needed. This data is collected via the Malaysian census. It was done through face to face interviews, self enumeration and e-census. After acquiring the data, we proceeded to clean it by only keeping the data needed. We focused on number of males and females and deleted rows with no information from these schools as they would not add to the statistic. Afterwards the type of school was chosen as our variable of interest and we proceeded to perform logistic regression. The reasoning and process is explained within the Data and Model section.
 
-After using logistic regression and creating our model, we have found that overall teachers are more likely to choose teaching at an academic school over a vocational school. There are most definitely many external factors that effect this outcome such as income and frequency of schools. As teachers in Malaysia, there are not many benefits, thus for many of these teachers’ the deciding factors is their salary. The income for those teaching in an academic school is higher than those in vocational school (@teacherpay).
+After using logistic regression and creating our model, we have found that overall teachers are more likely to choose teaching at an academic school over a vocational school. There are most definitely many external factors that effect this outcome such as income and frequency of schools. As teachers in Malaysia, there are not many benefits, thus for many of these teachers’ the deciding factors is their salary. The income for those teaching in an academic school is higher than those in vocational school @teacherpay.
 
 # Data
 
@@ -139,6 +140,7 @@ We then get $p = 0.866$. This is the probability for a female from Kedah to be t
 
 If we continue the calculations for the rest of the possibilities we get the following table:
 ```{r table, echo = FALSE, results='asis'}
+#creating table for probabilies of academic schools
 academic <- read_excel("input/data/probability academic.xlsx")
 table_aca <- kable(academic[1:15, ], caption = 'Probability of Teachers Teaching at an Academic School')
 table_aca
@@ -147,6 +149,7 @@ table_aca
 And if we want to look at the opposite (probability of teaching at a vocational school), we get the following table:
 
 ```{r table2, echo = FALSE, results='asis'}
+#creating table for probabilies of vocational schools
 vocational <- read_excel("input/data/probability vocational.xlsx")
 table_voc <- kable(vocational[1:15, ], caption = 'Probability of Teachers Teaching at a Vocational School')
 table_voc
@@ -155,6 +158,7 @@ table_voc
 An easier way to compare to put the values for the schools right next to each other. Since the values for males and females are identical, one table suffices:
 
 ```{r table3, echo = FALSE, results='asis'}
+#creating table to show differnce
 difference <- read_excel("input/data/female.xlsx")
 table_diff <- kable(difference[1:15, ], caption = 'Probability of Teachers Teaching Either Academic or Vocational Schools')
 table_diff

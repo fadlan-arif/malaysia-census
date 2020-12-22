@@ -1,15 +1,21 @@
 install.packages("writexl")
 library(writexl)
+
+#opening dataset
 government_school_teachers <- read_excel("data/Number_of_government_school_teachers_by_District_Education_Office_and_by_State_2017-2018 (2).xlsx")
 
+#getting rid of non-responses
 filtered_data <- government_school_teachers %>%
   filter(`Number of teachers` != '-', Year == '2018', `School type` != 'NA')
 
+#choosing variables of interest
 filtered_data2 <- filtered_data %>% slice(rep(1:n(), each = `Number of teachers`)) %>%
   select(Year, `School stage`, `School type`, State, `District Education Office`, Sex)
 
+#creating binary variable
 final_set <- filtered_data2 %>% mutate(bin_schooltype = if_else(`School type` == "Academic", 1, 0))
 
+#saving cleaned data in new file
 write_xlsx(final_set,"C:\\Users\\ariff\\OneDrive\\UTM Classes\\Year 3\\STA304\\malaysia-census\\input\\data\\final dataset.xlsx")
 
 final_data <- read_excel("data/final dataset.xlsx")
